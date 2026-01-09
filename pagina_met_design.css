@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ddd8d0;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.square {
+    background-color: #ff0000;
+    position: absolute;
+}
+
+.square-top {
+    width: 330px;
+    height: 185px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.square-left {
+    width: 90px;
+    height: 85px;
+    bottom: 220px;
+    left: 145px;
+}
+
+.square-bottom-right {
+    width: 210px;
+    height: 155px;
+    bottom: 0;
+    right: 0;
+}
