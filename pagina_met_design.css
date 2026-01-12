@@ -1,36 +1,84 @@
-body {
+* {
     margin: 0;
     padding: 0;
-    background-color: #ddd8d0;
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
+    box-sizing: border-box;
 }
 
+body {
+    background-color: #d4d0c8;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Rode vierkanten */
 .square {
-    background-color: #ff0000;
     position: absolute;
+    background-color: #ff0000;
+    z-index: 10;
 }
 
 .square-top {
-    width: 330px;
-    height: 185px;
+    width: 280px;
+    height: 180px;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
 }
 
 .square-left {
-    width: 90px;
-    height: 85px;
-    bottom: 220px;
-    left: 145px;
+    width: 100px;
+    height: 100px;
+    bottom: 180px;
+    left: 130px;
 }
 
 .square-bottom-right {
-    width: 210px;
-    height: 155px;
+    width: 180px;
+    height: 140px;
     bottom: 0;
     right: 0;
+}
+
+/* Afbeeldingen positionering */
+.image-gallery {
+    position: absolute;
+    left: 80px;
+    top: 120px;
+    width: 450px;
+    height: auto;
+    z-index: 5;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.image-marie-li {
+    position: absolute;
+    left: 220px;
+    bottom: 80px;
+    width: 300px;
+    height: auto;
+    z-index: 5;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.image-dinosaur {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 260px;
+    height: auto;
+    z-index: 5;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.image-ufo {
+    position: absolute;
+    right: 80px;
+    top: 120px;
+    width: 320px;
+    height: auto;
+    z-index: 5;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
