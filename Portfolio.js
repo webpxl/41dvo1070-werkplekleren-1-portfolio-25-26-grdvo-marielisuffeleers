@@ -1,16 +1,16 @@
 
 const pages = [
-    'portfolio_begin_pagina.html',  // 1. Begin pagina
+    'index.html',  // 1. Begin pagina
     'html_about_me.html',           // 2. About me pagina
     'motivation_letter.html',       // 3. Motivatie brief
     'my_design.html',               // 4. My designs
     'pagina_met_design.html',       // 5. Pagina met designs
-    'index.html',                   // 6. Tools/vaardigheden
+    'tools en vaardig heden ',      // 6. Tools/vaardigheden
     'einden.html'                   // 7. Einde pagina
 ];
 
 
-const currentPage = window.location.pathname.split('/').pop() || 'portfolio_begin_pagina.html';
+const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
 
 const currentIndex = pages.indexOf(currentPage);
@@ -34,3 +34,41 @@ function goToPreviousPage() {
         window.location.href = pages[pages.length - 1];
     }
 }
+
+
+document.addEventListener('click', function(event) {
+    const screenWidth = window.innerWidth;
+    const clickX = event.clientX;
+
+    const leftZone = screenWidth * 0.25;
+    const rightZone = screenWidth * 0.75;
+
+
+    if (clickX < leftZone) {
+        goToPreviousPage();
+    }
+
+    else if (clickX > rightZone) {
+        goToNextPage();
+    }
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Cursor veranderen aan de zijkanten
+    document.addEventListener('mousemove', function(event) {
+        const screenWidth = window.innerWidth;
+        const mouseX = event.clientX;
+
+        const leftZone = screenWidth * 0.25;
+        const rightZone = screenWidth * 0.75;
+
+        if (mouseX < leftZone) {
+            document.body.style.cursor = 'w-resize'; // Linker pijl
+        } else if (mouseX > rightZone) {
+            document.body.style.cursor = 'e-resize'; // Rechter pijl
+        } else {
+            document.body.style.cursor = 'default';
+        }
+    });
+});
