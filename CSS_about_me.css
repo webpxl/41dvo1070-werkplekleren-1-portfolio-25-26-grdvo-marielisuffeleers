@@ -22,7 +22,6 @@ body {
     align-items: start;
 }
 
-/* LINKS: Tekst sectie */
 .left-section {
     padding-top: 40px;
 }
@@ -71,7 +70,6 @@ body {
     margin-bottom: 30px;
 }
 
-/* MIDDEN: Grote foto */
 .center-section {
     padding-top: 40px;
 }
@@ -84,7 +82,6 @@ body {
     filter: grayscale(100%);
 }
 
-/* RECHTS: Kleine foto's */
 .right-section {
     display: flex;
     flex-direction: column;
