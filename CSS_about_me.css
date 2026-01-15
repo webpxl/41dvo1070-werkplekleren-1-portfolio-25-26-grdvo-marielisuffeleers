@@ -5,97 +5,190 @@
 }
 
 body {
+    background-color: #d4d0c8;
     font-family: Arial, sans-serif;
-    background-color: #dad6c8;
-    padding: 40px 60px;
     min-height: 100vh;
-    overflow-x: hidden;
+    padding: 40px;
 }
 
-.main-container {
-    max-width: 1400px;
+.container {
+    max-width: 100%;
     width: 100%;
-    margin: 0 auto;
     display: grid;
-    grid-template-columns: 450px 550px 300px;
-    gap: 3px;
+    grid-template-columns: 0.8fr 1.2fr 0.6fr;
+    gap: 40px;
     align-items: start;
-    height: auto;
 }
 
-.left-section {
-    padding-top: 0;
-}
-
-.title-section {
-    margin-bottom: 40px;
-}
-
-.about-block {
-    background-color: #ff0000;
-    display: inline-block;
-    padding: 8px 25px;
-}
-
-.about-text {
-    font-size: 55px;
-    font-weight: 900;
-    font-style: italic;
-    color: #000;
-    line-height: 1;
-    letter-spacing: -2px;
-}
-
-.me-text {
-    font-size: 90px;
-    font-weight: 900;
-    font-style: italic;
-    color: #000;
-    line-height: 1;
-    letter-spacing: -3px;
-    margin-left: 140px;
-    margin-top: 5px;
-}
-
-.intro-text h2 {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    line-height: 1.5;
-}
-
-.intro-text p {
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.center-section {
-    padding-top: 0;
-    height: auto;
-}
-
-.photo-large {
-    width: 100%;
-    height: 580px;
-    object-fit: contain;
-    object-position: center;
-    filter: grayscale(100%);
-}
-
-.right-section {
+/* Links sectie: Titel en tekst */
+.content-section {
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    gap: 50px;
     padding-top: 0;
-    height: auto;
 }
 
-.photo-small {
+.title-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    line-height: 0.9;
+}
+
+.title-about {
+    background-color: #ff0000;
+    color: #000;
+    font-size: 64px;
+    font-weight: 900;
+    font-style: italic;
+    padding: 5px 15px;
+    display: inline-block;
+    width: fit-content;
+}
+
+.title-me {
+    font-size: 100px;
+    font-weight: 900;
+    font-style: italic;
+    color: #000;
+    margin-left: 40px;
+    margin-top: -15px;
+}
+
+.text-content {
+    margin-top: 20px;
+}
+
+.text-content h2 {
+    font-size: 24px;
+    font-weight: 900;
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+.text-content p {
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.text-content p strong {
+    font-weight: 900;
+}
+
+/* Midden sectie: Grote foto */
+.main-photo {
     width: 100%;
-    height: 183px;
-    object-fit: contain;
-    object-position: center;
-    filter: grayscale(100%);
+    height: 100%;
+    display: flex;
+    align-items: start;
+}
+
+.main-photo img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Rechts sectie: Foto grid - GEEN GAP */
+.photo-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.grid-photo {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Responsive voor tablet */
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .title-about {
+        font-size: 48px;
+    }
+
+    .title-me {
+        font-size: 72px;
+    }
+
+    .photo-grid {
+        flex-direction: row;
+        gap: 0;
+    }
+
+    .grid-photo {
+        width: 33.333%;
+    }
+}
+
+/* Responsive voor mobiel */
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+
+    .container {
+        gap: 20px;
+    }
+
+    .content-section {
+        gap: 30px;
+    }
+
+    .title-about {
+        font-size: 36px;
+    }
+
+    .title-me {
+        font-size: 56px;
+        margin-left: 20px;
+    }
+
+    .text-content h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .text-content p {
+        font-size: 16px;
+    }
+
+    .grid-photo {
+        width: 50%;
+    }
+}
+
+@media (max-width: 480px) {
+    .title-about {
+        font-size: 28px;
+    }
+
+    .title-me {
+        font-size: 44px;
+    }
+
+    .text-content h2 {
+        font-size: 18px;
+    }
+
+    .text-content p {
+        font-size: 14px;
+    }
+
+    .photo-grid {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .grid-photo {
+        width: 100%;
+    }
 }

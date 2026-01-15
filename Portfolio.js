@@ -1,13 +1,13 @@
 
 const pages = [
-    'portfolio_begin_pagina.html',
-
+    'index.html',
     'html_about_me.html',
     'motivation_letter.html',
     'my_design.html',
     'pagina_met_design.html',
     'tools.html',
     'werk_ervaring.html',
+    'reflectie.html',
     'einden.html'
 ];
 
