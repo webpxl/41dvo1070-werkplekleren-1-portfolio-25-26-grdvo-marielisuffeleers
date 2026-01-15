@@ -6,112 +6,90 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #d3cfc5;
-    overflow: hidden;
-}
-
-.container {
-    position: relative;
-    width: 100%;
+    background-color: #ddd5c7;
     height: 100vh;
+    padding: 40px 60px;
 }
 
-.left-section {
-    position: absolute;
-    left: 45px;
-    top: 35px;
-    width: 360px;
+/* Header met experiences titel */
+.header {
+    text-align: center;
+    margin-bottom: 60px;
 }
 
-.right-section {
-    position: absolute;
-    right: 120px;
-    top: 35px;
-    width: 400px;
-}
-
-h1 {
-    font-size: 3.5rem;
-    font-weight: 900;
-    margin-bottom: 55px;
-    text-transform: lowercase;
-    letter-spacing: -3px;
-    line-height: 0.9;
-}
-
-.gray-pill {
-    background-color: #9da3ab;
-    border-radius: 80px;
-    padding: 16px 36px;
-    display: inline-block;
-    margin-bottom: 40px;
+.main-title {
+    font-size: 120px;
     font-weight: bold;
-    font-size: 1.1rem;
-    color: #000;
+    font-style: italic;
+    color: #000000;
 }
 
-ul {
-    list-style: none;
-    font-size: 2.6rem;
-    font-weight: 900;
-    line-height: 1.25;
+/* Content container - twee kolommen */
+.content-container {
+    display: flex;
+    gap: 100px;
 }
 
-ul li {
-    margin-bottom: 5px;
+/* Linker kolom */
+.left-side {
+    flex: 1;
 }
 
-ul li::before {
-    content: "• ";
-    margin-right: 20px;
+.left-side h2 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 60px;
 }
 
-.red-stripe {
-    position: absolute;
-    background-color: #e41e24;
-    width: 340px;
-    height: 150%;
-    top: -25%;
-    left: 50%;
-    transform: translateX(-50%) skewX(-16deg);
-    z-index: 0;
-}
-
-.timeline-item {
+.job-item {
     display: flex;
     align-items: center;
-    margin-bottom: 45px;
-    gap: 40px;
-    position: relative;
-    z-index: 2;
+    margin-bottom: 50px;
 }
 
-.timeline-item:last-child {
-    margin-bottom: 0;
-}
-
-.timeline-circle {
-    background-color: #bfbbb6;
+.year-circle {
+    width: 130px;
+    height: 130px;
+    background-color: #c8c3d3;
     border-radius: 50%;
-    width: 165px;
-    height: 165px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    font-size: 1.08rem;
-    text-align: center;
-    padding: 20px;
+    font-size: 17px;
+    margin-right: 40px;
     flex-shrink: 0;
-    color: #000;
 }
 
-.timeline-content {
-    font-size: 2.6rem;
-    font-weight: 900;
+.job-name {
+    font-size: 32px;
+    font-weight: bold;
 }
 
-.timeline-content::before {
+/* Rechter kolom */
+.right-side {
+    flex: 1;
+}
+
+.right-side h2 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 60px;
+}
+
+.stage-list {
+    list-style: none;
+    padding: 0;
+}
+
+.stage-list li {
+    font-size: 52px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+.stage-list li::before {
     content: "• ";
     margin-right: 20px;
 }
