@@ -1,13 +1,14 @@
 
 const pages = [
-    'portfolio_begin_pagina.html',  // 1. Begin pagina
-    'html_about_me.html',           // 2. About me
-    'motivation_letter.html',       // 3. Motivatie letter
-    'my_design.html',               // 4. Mijn designs
-    'pagina_met_design.html',       // 5. Pagina met mijn designs
-    'tools.html',                   // 6. Tools
-    'werk_ervaring.html',           // 7. Experience
-    'einden.html'                   // 8. Einde
+    'portfolio_begin_pagina.html',
+
+    'html_about_me.html',
+    'motivation_letter.html',
+    'my_design.html',
+    'pagina_met_design.html',
+    'tools.html',
+    'werk_ervaring.html',
+    'einden.html'
 ];
 
 
