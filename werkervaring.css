@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ddd5c7;
+    height: 100vh;
+    padding: 40px 60px;
+}
+
+/* Header met experiences titel */
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.main-title {
+    font-size: 120px;
+    font-weight: bold;
+    font-style: italic;
+    color: #000000;
+}
+
+/* Content container - twee kolommen */
+.content-container {
+    display: flex;
+    gap: 100px;
+}
+
+/* Linker kolom */
+.left-side {
+    flex: 1;
+}
+
+.left-side h2 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 60px;
+}
+
+.job-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.year-circle {
+    width: 130px;
+    height: 130px;
+    background-color: #c8c3d3;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 17px;
+    margin-right: 40px;
+    flex-shrink: 0;
+}
+
+.job-name {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/* Rechter kolom */
+.right-side {
+    flex: 1;
+}
+
+.right-side h2 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 60px;
+}
+
+.stage-list {
+    list-style: none;
+    padding: 0;
+}
+
+.stage-list li {
+    font-size: 52px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+.stage-list li::before {
+    content: "• ";
+    margin-right: 20px;
+}

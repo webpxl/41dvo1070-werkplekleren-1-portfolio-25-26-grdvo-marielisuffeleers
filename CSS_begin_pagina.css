@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial Black', Arial, sans-serif;
+    background-color: #dad6c8;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.text-section {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.name-block {
+    background-color: #e30613;
+    padding: 20px 60px 20px 30px;
+    display: inline-block;
+    margin-bottom: 35px;
+}
+
+.name {
+    font-size: 115px;
+    font-weight: 900;
+    font-style: italic;
+    color: #000;
+    line-height: 0.85;
+    letter-spacing: -4px;
+}
+
+.lastname-block {
+    background-color: #e30613;
+    padding: 20px 60px 20px 30px;
+    display: inline-block;
+    margin-left: 180px;
+}
+
+.lastname {
+    font-size: 115px;
+    font-weight: 900;
+    font-style: italic;
+    color: #000;
+    line-height: 0.85;
+    letter-spacing: -4px;
+}
+
+.image-section {
+    position: absolute;
+    right: 80px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.profile-image {
+    width: 520px;
+    height: 680px;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(100%) contrast(1.05);
+}
+
+/* Tablet */
+@media (max-width: 1400px) {
+    .name,
+    .lastname {
+        font-size: 90px;
+    }
+
+    .profile-image {
+        width: 420px;
+        height: 580px;
+    }
+
+    .image-section {
+        right: 50px;
+    }
+
+    .lastname-block {
+        margin-left: 140px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .name,
+    .lastname {
+        font-size: 70px;
+    }
+
+    .profile-image {
+        width: 350px;
+        height: 500px;
+    }
+
+    .image-section {
+        right: 30px;
+    }
+
+    .lastname-block {
+        margin-left: 100px;
+    }
+
+    .name-block,
+    .lastname-block {
+        padding: 15px 40px 15px 20px;
+    }
+}
+
+/* Mobiel */
+@media (max-width: 768px) {
+    body {
+        overflow-y: auto;
+    }
+
+    .container {
+        height: auto;
+        padding: 40px 20px;
+    }
+
+    .text-section {
+        position: relative;
+        top: 0;
+        transform: none;
+        margin-bottom: 40px;
+    }
+
+    .name,
+    .lastname {
+        font-size: 50px;
+    }
+
+    .lastname-block {
+        margin-left: 60px;
+    }
+
+    .name-block,
+    .lastname-block {
+        padding: 10px 30px 10px 15px;
+    }
+
+    .image-section {
+        position: relative;
+        right: 0;
+        top: 0;
+        transform: none;
+        text-align: center;
+    }
+
+    .profile-image {
+        width: 300px;
+        max-width: 400px;
+    }
+}

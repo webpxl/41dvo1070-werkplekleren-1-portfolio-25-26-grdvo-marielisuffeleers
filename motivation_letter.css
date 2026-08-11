@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #d4d0c8;
+    font-family: 'Arial Black', Arial, sans-serif;
+    padding: 40px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 60px;
+}
+
+.logo-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.red-box {
+    background-color: #ff0000;
+    width: 255px;
+    height: 240px;
+}
+
+.logo-text {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 95px;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.logo-text .moti {
+    color: #000;
+}
+
+.logo-text .vation {
+    color: #000;
+    font-style: italic;
+}
+
+.contact-info {
+    text-align: right;
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 1.4;
+}
+
+.contact-info .name {
+    font-size: 20px;
+}
+
+.content {
+    max-width: 650px;
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 1.6;
+}
+
+.content p {
+    margin-bottom: 24px;
+}
+
+.content .greeting {
+    margin-bottom: 12px;
+}
+
+.content .closing {
+    margin-top: 40px;
+    margin-bottom: 8px;
+}
+
+.letter-vertical {
+    position: absolute;
+    right: 40px;
+    top: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.letter-box {
+    background-color: #ff0000;
+    width: 80px;
+    height: 580px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 70px;
+    font-weight: 900;
+    letter-spacing: 8px;
+    padding: 20px 0;
+}
+
+.letter-box span {
+    display: block;
+    color: #000;
+}
+
+
+.arrow-box:hover {
+    transform: scale(1.05);
+}
+
+.arrow {
+    font-size: 60px;
+    font-weight: 900;
+    color: #000;
+}
