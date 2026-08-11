@@ -1,0 +1,117 @@
+/* ==========================================================================
+   reset.css — minimal, opinionated. Nothing here sets a colour or a font.
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd,
+ul,
+ol {
+  margin: 0;
+}
+
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.15;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+img,
+picture,
+svg,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+/* Every <img> carries explicit width/height attributes so the layout doesn't
+   shift while loading. Without height:auto those attributes win once the
+   width is constrained, and the image stretches. Not applied to svg, where
+   the height is set deliberately. */
+img,
+video {
+  height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything the JS scrolls or focuses gets breathing room from the sticky header */
+:target {
+  scroll-margin-block-start: 5rem;
+}
+
+/* Never remove the outline. Sections override the colour, not the existence. */
+:focus-visible {
+  outline: var(--focus-width) solid var(--focus);
+  outline-offset: var(--focus-offset);
+}
+
+/* Content is visible by default. Motion is added by JS, never the reverse —
+   so a JS failure degrades to a readable page, not a blank one. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

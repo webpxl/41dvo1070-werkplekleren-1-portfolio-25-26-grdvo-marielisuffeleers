@@ -1,0 +1,1512 @@
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--t-body);
+  line-height: var(--lh-body);
+  font-weight: 400;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--s-2);
+  top: var(--s-2);
+  z-index: 100;
+  padding: var(--s-1) var(--s-2);
+  background: var(--ink);
+  color: var(--cream);
+  border-radius: var(--r-control);
+  transform: translateY(-200%);
+  transition: transform var(--d-transform) var(--ease-out);
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: var(--gutter);
+}
+
+/* --------------------------------------------------------------------------
+   2. Sections. Backgrounds alternate cream → ink → cream.
+      One full-bleed red section maximum per page.
+   -------------------------------------------------------------------------- */
+
+.section {
+  position: relative;
+  padding-block: var(--section-pad);
+  overflow-x: clip; /* lets characters hang off the edge without a scrollbar */
+}
+
+.section--ink {
+  background: var(--ink);
+  color: var(--cream);
+  --focus: var(--cream);
+  --rule: var(--rule-on-ink);
+}
+
+.section--red {
+  background: var(--red);
+  color: var(--cream);
+  --focus: var(--cream);
+  --rule: var(--rule-on-ink);
+}
+
+.section--tight {
+  padding-block: var(--s-6);
+}
+
+/* --------------------------------------------------------------------------
+   3. Type roles
+   -------------------------------------------------------------------------- */
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: lowercase;
+  letter-spacing: var(--track-display);
+  line-height: var(--lh-display);
+}
+
+.t-hero {
+  font-size: var(--t-hero);
+}
+
+.t-h2 {
+  font-size: var(--t-h2);
+}
+
+.t-h3 {
+  font-size: var(--t-h3);
+  line-height: 1.25;
+}
+
+/* Every hard fact on this site is set in mono. Client, year, role, type.
+   The characters carry the personality; this carries the credibility. */
+.meta {
+  font-family: var(--font-mono);
+  font-size: var(--t-meta);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--track-meta);
+  line-height: 1.4;
+}
+
+.measure {
+  max-width: 34ch;
+}
+
+.measure-wide {
+  max-width: 58ch;
+}
+
+/* --------------------------------------------------------------------------
+   4. Links and buttons
+   -------------------------------------------------------------------------- */
+
+.link {
+  color: currentColor;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+  transition: color var(--d-colour) var(--ease-out);
+}
+
+.link:hover {
+  color: var(--red);
+}
+
+.section--ink .link:hover,
+.section--red .link:hover {
+  color: var(--cream);
+  text-decoration-thickness: 2px;
+}
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-1);
+  font-family: var(--font-mono);
+  font-size: var(--t-meta);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--track-meta);
+  color: currentColor;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  transition: color var(--d-colour) var(--ease-out);
+}
+
+.link-arrow:hover {
+  color: var(--red);
+}
+
+.section--red .link-arrow:hover,
+.section--ink .link-arrow:hover {
+  color: var(--cream);
+}
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--t-body);
+  padding: 0.875rem var(--s-3);
+  border: none;
+  border-radius: var(--r-control);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background var(--d-colour) var(--ease-out),
+    color var(--d-colour) var(--ease-out);
+}
+
+.btn--ink {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.btn--ink:hover {
+  background: var(--red-deep);
+}
+
+.btn--red {
+  background: var(--red);
+  color: var(--cream);
+}
+
+.btn--red:hover {
+  background: var(--red-deep);
+}
+
+/* --------------------------------------------------------------------------
+   5. Header
+   -------------------------------------------------------------------------- */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  transition: background var(--d-colour) var(--ease-out),
+    color var(--d-colour) var(--ease-out);
+}
+
+/* Applied by JS past 80px of scroll. */
+.header.is-stuck {
+  background: var(--header-fill);
+  backdrop-filter: blur(8px);
+  color: var(--cream);
+  --focus: var(--cream);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+  padding-block: var(--s-2);
+}
+
+.wordmark {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.375rem;
+  text-transform: lowercase;
+  letter-spacing: var(--track-display);
+  color: currentColor;
+  text-decoration: none;
+}
+
+/* The hyphen is the only red element in the logo. */
+.wordmark-hyphen {
+  color: var(--red);
+}
+
+.header.is-stuck .wordmark-hyphen {
+  color: var(--cream);
+}
+
+.nav {
+  display: none;
+  align-items: center;
+  gap: var(--s-4);
+}
+
+.nav-link {
+  font-family: var(--font-mono);
+  font-size: var(--t-meta);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--track-meta);
+  color: currentColor;
+  text-decoration: none;
+  padding-block: var(--s-1);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--d-colour) var(--ease-out);
+}
+
+.nav-link:hover,
+.nav-link[aria-current='page'] {
+  border-bottom-color: var(--red);
+}
+
+.header.is-stuck .nav-link:hover,
+.header.is-stuck .nav-link[aria-current='page'] {
+  border-bottom-color: var(--cream);
+}
+
+.nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-1);
+  background: none;
+  border: none;
+  padding: var(--s-1);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: var(--t-meta);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--track-meta);
+  color: currentColor;
+}
+
+@media (min-width: 800px) {
+  .nav {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+}
+
+/* Mobile overlay — full-screen red, cream type, one character peeking. */
+.navmenu {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--s-3);
+  padding: var(--gutter);
+  background: var(--red);
+  color: var(--cream);
+  --focus: var(--cream);
+  overflow: hidden;
+}
+
+.navmenu[data-open='true'] {
+  display: flex;
+}
+
+.navmenu-link {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.5rem, 12vw, 4rem);
+  text-transform: lowercase;
+  letter-spacing: var(--track-display);
+  line-height: var(--lh-display);
+  color: currentColor;
+  text-decoration: none;
+}
+
+.navmenu-close {
+  position: absolute;
+  top: var(--s-2);
+  right: var(--gutter);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--s-1);
+  color: currentColor;
+  font-family: var(--font-mono);
+  font-size: var(--t-meta);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--track-meta);
+}
+
+.navmenu-char {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 160px;
+  height: 160px;
+  transform: translate(-50%, 38%);
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   6. Hero — personal introduction with the original portfolio illustration.
+   -------------------------------------------------------------------------- */
+
+
+/* --------------------------------------------------------------------------
+   6. Hero — the character-operated sketch → final comparison.
+      This is the one place the site spends its boldness.
+   -------------------------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  background: var(--ink);
+  color: var(--cream);
+  --focus: var(--cream);
+}
+
+.compare {
+  position: relative;
+  width: 100%;
+  height: 85vh;
+  min-height: 30rem;
+  overflow: hidden;
+  touch-action: pan-y; /* vertical scroll still works while dragging */
+  --split: 50%;
+}
+
+.compare-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* The finished piece sits under; the sketch is clipped over it. */
+.compare-img--top {
+  clip-path: inset(0 calc(100% - var(--split)) 0 0);
+}
+
+.compare-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--split);
+  width: 2px;
+  margin-left: -1px;
+  background: var(--cream);
+  border: none;
+  padding: 0;
+  cursor: ew-resize;
+  z-index: 3;
+}
+
+.compare-grip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(88px, 12vw, 132px);
+  height: clamp(88px, 12vw, 132px);
+  /* The reset caps every svg at max-width:100%, and this one's containing
+     block is the 2px handle — without this the character collapses to a
+     2px sliver. */
+  max-width: none;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.compare-labels {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  padding: var(--gutter);
+  pointer-events: none;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  z-index: 2;
+  padding-top: clamp(var(--s-6), 14vh, var(--s-8));
+  pointer-events: none;
+}
+
+/* The overlay sits on top of two images that swap as the visitor drags, so it
+   can't rely on either one for contrast. Each line gets its own solid ink
+   slab — legible over the sketch, the finished piece, or the join between
+   them, at any split position. No scrim, no gradient, no shadow. */
+.slab {
+  background: var(--ink);
+  color: var(--cream);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  padding: 0.08em 0.2em;
+}
+
+.hero-name .slab {
+  padding: 0.02em 0.12em;
+}
+
+.hero-line {
+  margin-top: var(--s-3);
+  max-width: 34ch;
+  font-size: var(--t-h3);
+  line-height: 1.5;
+}
+
+/* Under 640px the drag falls back to a static stacked pair with the
+   character sitting between the two images. */
+.compare-stack {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .compare {
+    display: none;
+  }
+
+  .compare-stack {
+    display: block;
+    position: relative;
+  }
+
+  .compare-stack-char {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 96px;
+    height: 96px;
+    max-width: none;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .hero-overlay {
+    position: static;
+    padding: var(--section-pad) 0 var(--s-5);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   7. About — personal photo beside the introduction.
+   -------------------------------------------------------------------------- */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(var(--s-5), 6vw, var(--s-8));
+  align-items: center;
+}
+
+.about-photo {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--sand);
+}
+
+.about-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+}
+
+.about-copy {
+  max-width: 42rem;
+}
+
+.about-copy h2 {
+  margin-top: var(--s-2);
+  margin-bottom: var(--s-4);
+}
+
+.about-copy p + p {
+  margin-top: var(--s-3);
+}
+
+@media (max-width: 800px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-photo {
+    max-width: 34rem;
+  }
+}
+
+
+/* Three equal columns for the About section. */
+.about-three-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: start;
+}
+
+.about-panel {
+  max-width: 34rem;
+}
+
+.about-panel h2 {
+  margin-top: var(--s-2);
+  margin-bottom: var(--s-4);
+}
+
+.about-panel p:not(.meta) {
+  max-width: 31rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 800px) {
+  .about-three-grid {
+    grid-template-columns: 1fr;
+    gap: var(--s-6);
+  }
+}
+
+
+/* Three equal columns for the parcours section. */
+.parcours-three-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+}
+
+.parcours-panel {
+  min-width: 0;
+}
+
+.parcours-panel > p:not(.meta) {
+  max-width: 34rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 800px) {
+  .parcours-three-grid {
+    grid-template-columns: 1fr;
+    gap: var(--s-6);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   7. Lede — "wie ze is"
+   -------------------------------------------------------------------------- */
+
+.lede {
+  grid-column: 1 / -1;
+  font-size: var(--t-h3);
+  line-height: 1.35;
+}
+
+@media (min-width: 900px) {
+  .lede {
+    grid-column: 4 / 11;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   8. Index rows — used on the homepage and on Projects.
+      Rows, not cards. No characters anywhere in this component.
+   -------------------------------------------------------------------------- */
+
+.index {
+  border-top: 1px solid var(--rule);
+}
+
+.index-row {
+  border-bottom: 1px solid var(--rule);
+}
+
+.index-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  gap: var(--s-2) var(--gutter);
+  width: 100%;
+  padding-block: var(--s-4);
+  background: none;
+  border: none;
+  text-align: left;
+  color: currentColor;
+  cursor: pointer;
+  font: inherit;
+  /* On the homepage these rows are links, on Projects they are buttons.
+     Both must look identical. */
+  text-decoration: none;
+}
+
+/* Only the display-size project name takes the red on hover. Tinting the whole
+   row drops the 11px mono meta line to 3.5:1 on cream and 2.1:1 on ink; the
+   name is large bold text, where red clears the 3:1 threshold on both. */
+.index-name {
+  transition: color var(--d-colour) var(--ease-out);
+}
+
+.index-head:hover .index-name,
+.index-head:focus-visible .index-name {
+  color: var(--red);
+}
+
+.index-name {
+  grid-column: 1;
+  font-size: clamp(1.75rem, 4.5vw, 3rem);
+}
+
+.index-meta {
+  grid-column: 1;
+  grid-row: 2;
+  color: currentColor;
+  opacity: 0.7;
+}
+
+.index-note {
+  grid-column: 1;
+  grid-row: 3;
+  margin-top: var(--s-1);
+  max-width: 52ch;
+}
+
+.index-toggle {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  align-self: center;
+  font-family: var(--font-mono);
+  font-size: var(--t-meta);
+  letter-spacing: var(--track-meta);
+  white-space: nowrap;
+}
+
+/* Thumbnail pinned to the cursor. Desktop pointers only — a touch device has
+   no hover state, and a thumbnail chasing a finger is noise. */
+.index-thumb {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 40;
+  width: 220px;
+  height: 165px;
+  border-radius: var(--r-card);
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--d-colour) var(--ease-out);
+}
+
+.index-thumb.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (hover: none) {
+  .index-thumb {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   9. Accordion detail panel (Projects)
+   -------------------------------------------------------------------------- */
+
+.index-detail {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--d-reveal) var(--ease-out);
+}
+
+.index-detail[data-open='true'] {
+  grid-template-rows: 1fr;
+}
+
+.index-detail-inner {
+  overflow: hidden;
+}
+
+.detail {
+  margin-bottom: var(--s-4);
+  padding: var(--s-4);
+  background: var(--sand);
+  border-radius: var(--r-card);
+}
+
+.detail-grid {
+  display: grid;
+  gap: var(--s-3);
+}
+
+@media (min-width: 900px) {
+  .detail-grid {
+    grid-template-columns: 5fr 7fr;
+    gap: var(--s-5);
+  }
+}
+
+.detail-body p + p {
+  margin-top: var(--s-2);
+}
+
+.detail-facts {
+  margin-top: var(--s-3);
+  display: grid;
+  gap: var(--s-1);
+}
+
+.detail-fact {
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  gap: var(--s-2);
+}
+
+.detail-shots {
+  display: grid;
+  gap: var(--s-2);
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* The rounding belongs to the image, not to the figure — the figure also holds
+   the caption, and Martian Mono's first glyph bleeds a fraction past the box,
+   so clipping at figure level shaved the leading letter off every caption. */
+.detail-shot img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--r-card);
+}
+
+.detail-shot--wide {
+  grid-column: 1 / -1;
+}
+
+.detail-caption {
+  margin-top: var(--s-1);
+  opacity: 0.7;
+}
+
+/* --------------------------------------------------------------------------
+   10. Filters
+   -------------------------------------------------------------------------- */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-3);
+  margin-bottom: var(--s-5);
+}
+
+.filter {
+  background: none;
+  border: none;
+  padding: var(--s-1) 0;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: var(--t-meta);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--track-meta);
+  color: currentColor;
+  border-bottom: 2px solid transparent;
+  transition: color var(--d-colour) var(--ease-out),
+    border-color var(--d-colour) var(--ease-out);
+}
+
+.filter:hover {
+  color: var(--red);
+}
+
+.filter[aria-pressed='true'] {
+  color: var(--red);
+  border-bottom-color: var(--red);
+}
+
+.index-row[hidden] {
+  display: none;
+}
+
+/* Empty state — the only place a character appears in the work area. */
+.empty {
+  display: none;
+  align-items: center;
+  gap: var(--s-3);
+  padding-block: var(--s-6);
+}
+
+.empty[data-visible='true'] {
+  display: flex;
+}
+
+.empty-char {
+  flex: none;
+  width: 96px;
+  height: 96px;
+  color: var(--red);
+}
+
+/* --------------------------------------------------------------------------
+   11. Cast row — the six characters. A personality set, not a process,
+       so there is no numbering here.
+   -------------------------------------------------------------------------- */
+
+.cast {
+  display: grid;
+  gap: var(--s-2);
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 700px) {
+  .cast {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .cast {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.cast-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  padding: var(--s-3) var(--s-2) var(--s-4);
+  background: var(--sand);
+  border-radius: var(--r-card);
+}
+
+.cast-figure {
+  display: block;
+  width: 100%;
+  max-width: 112px;
+  aspect-ratio: 1;
+  margin-inline: auto;
+  color: var(--red);
+}
+
+.cast-name {
+  color: var(--red);
+}
+
+.cast-desc {
+  font-size: 0.9375rem;
+  line-height: 1.4;
+}
+
+.cast-credit {
+  margin-top: var(--s-3);
+  opacity: 0.7;
+}
+
+/* --------------------------------------------------------------------------
+   12. Proof
+   -------------------------------------------------------------------------- */
+
+.proof-quote {
+  font-size: var(--t-h3);
+  line-height: 1.35;
+  max-width: 46ch;
+}
+
+.proof-attrib {
+  margin-top: var(--s-3);
+  opacity: 0.7;
+}
+
+.proof-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-4);
+  margin-top: var(--s-4);
+  padding: 0;
+  list-style: none;
+}
+
+/* Client logo strip. Every mark is monochrome currentColor, so the whole row
+   sits at one weight instead of becoming a colour salad — and it inherits the
+   section's colour rather than needing its own. Logos have different natural
+   widths, so they are sized by height and allowed to wrap. */
+.logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-3) var(--s-5);
+  margin-top: var(--s-4);
+  padding: 0;
+  list-style: none;
+}
+
+/* Sized by height, not width — the six lockups have very different natural
+   widths, and matching their widths would make the marks inconsistent. */
+.logo {
+  display: block;
+  height: 26px;
+  width: auto;
+  max-width: 100%;
+  opacity: 0.85;
+}
+
+@media (min-width: 700px) {
+  .logo {
+    height: 30px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   13. CTA band
+   -------------------------------------------------------------------------- */
+
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-3);
+  margin-top: var(--s-4);
+}
+
+/* --------------------------------------------------------------------------
+   14. Footer
+   -------------------------------------------------------------------------- */
+
+.footer {
+  position: relative;
+  background: var(--ink);
+  color: var(--cream);
+  --focus: var(--cream);
+  padding-block: var(--s-6) var(--s-5);
+  overflow: hidden;
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--s-4);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-4);
+  padding: 0;
+  list-style: none;
+}
+
+.footer-legal {
+  opacity: 0.7;
+}
+
+/* --------------------------------------------------------------------------
+   15. Forms
+   -------------------------------------------------------------------------- */
+
+.form-field {
+  display: grid;
+  gap: var(--s-1);
+  margin-bottom: var(--s-3);
+}
+
+/* Labels are always visible. Placeholder-as-label fails accessibility
+   and is a template tell. */
+.form-label {
+  font-family: var(--font-mono);
+  font-size: var(--t-meta);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--track-meta);
+}
+
+.form-optional {
+  opacity: 0.6;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem var(--s-2);
+  background: var(--sand);
+  color: var(--ink);
+  border: 1px solid transparent;
+  border-radius: var(--r-control);
+  transition: border-color var(--d-colour) var(--ease-out);
+}
+
+.form-input:hover {
+  border-color: var(--rule);
+}
+
+.form-input[aria-invalid='true'] {
+  border-color: var(--red);
+}
+
+.form-error {
+  display: none;
+  align-items: center;
+  gap: var(--s-1);
+  color: var(--red-deep);
+  font-size: 0.9375rem;
+}
+
+.form-error[data-visible='true'] {
+  display: flex;
+}
+
+.form-error-char {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  color: var(--red);
+}
+
+/* Honeypot. Off-screen rather than display:none — some bots skip hidden
+   fields but still fill positioned ones. */
+.form-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-success {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s-3);
+}
+
+.form-success[data-visible='true'] {
+  display: flex;
+}
+
+.form-success-char {
+  width: 128px;
+  height: 128px;
+  color: var(--red);
+}
+
+.form[data-submitted='true'] {
+  display: none;
+}
+
+.form-note {
+  margin-top: var(--s-2);
+  opacity: 0.7;
+}
+
+/* --------------------------------------------------------------------------
+   16. Contact layout
+   -------------------------------------------------------------------------- */
+
+.contact-grid {
+  display: grid;
+  gap: var(--s-6);
+}
+
+@media (min-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 7fr 5fr;
+    gap: var(--s-8);
+  }
+}
+
+.direct-item {
+  margin-bottom: var(--s-4);
+}
+
+.direct-mail {
+  display: inline-block;
+  margin-top: var(--s-1);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  text-transform: lowercase;
+  letter-spacing: var(--track-display);
+  line-height: var(--lh-display);
+  color: currentColor;
+  text-decoration: none;
+  border-bottom: 2px solid var(--red);
+}
+
+.direct-mail:hover {
+  color: var(--red);
+}
+
+/* Numbered markers appear here and nowhere else on the site — this genuinely
+   is a sequence, unlike the cast row. */
+.steps {
+  display: grid;
+  gap: var(--s-3);
+  margin-top: var(--s-5);
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: var(--s-2);
+  align-items: baseline;
+  padding-top: var(--s-2);
+  border-top: 1px solid var(--rule);
+}
+
+.step-num {
+  color: var(--red);
+}
+
+/* --------------------------------------------------------------------------
+   17. Characters — placement, density, motion.
+       Hard cap of one visible per viewport height is enforced by where these
+       are placed in the markup, not by CSS.
+   -------------------------------------------------------------------------- */
+
+.char {
+  pointer-events: none;
+  color: var(--red);
+}
+
+.char--cream {
+  color: var(--cream);
+}
+
+/* Peeking is how ubiquity is achieved without a sticker book. A character
+   half-clipped by a section edge reads as everywhere; a full body reads
+   as clutter. */
+.char--peek-right {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: clamp(96px, 14vw, 160px);
+  aspect-ratio: 1;
+  transform: translate(38%, -50%);
+}
+
+.char--peek-bottom {
+  position: absolute;
+  left: 8%;
+  bottom: 0;
+  width: clamp(96px, 14vw, 160px);
+  aspect-ratio: 1;
+  transform: translateY(34%);
+}
+
+.char--peek-top {
+  position: absolute;
+  right: 10%;
+  top: 0;
+  width: clamp(96px, 14vw, 160px);
+  aspect-ratio: 1;
+  transform: translateY(-42%);
+}
+
+/* Idle breathing: 3s loop, 2px vertical, 1% scale. Applied by JS only while
+   the character is actually in the viewport. */
+@keyframes breathe {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.01);
+  }
+}
+
+.char-inner {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.char-inner.is-breathing {
+  animation: breathe 3s ease-in-out infinite;
+}
+
+/* Hover on a cast card: one squash-and-stretch, once, no loop. */
+@keyframes squash {
+  0% {
+    transform: scale(1, 1);
+  }
+  40% {
+    transform: scale(1.06, 0.94);
+  }
+  70% {
+    transform: scale(0.97, 1.03);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+.char-inner.is-squashing {
+  animation: squash var(--d-transform) var(--ease-out) 1;
+}
+
+/* Form success: one 400ms rise. No confetti. */
+@keyframes rise {
+  from {
+    transform: translateY(16px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.char-inner.is-rising {
+  animation: rise var(--d-reveal) var(--ease-out) 1;
+}
+
+/* --------------------------------------------------------------------------
+   18. Reveal on scroll. Content is visible in CSS by default; JS opts an
+       element in by adding .reveal, then removes the offset on intersection.
+   -------------------------------------------------------------------------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity var(--d-entrance) var(--ease-out),
+    transform var(--d-entrance) var(--ease-out);
+}
+
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* One orchestrated page-load: hero lines stagger up, 60ms apart. */
+.stagger {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.stagger.is-in {
+  opacity: 1;
+  transform: none;
+  transition: opacity var(--d-entrance) var(--ease-out),
+    transform var(--d-entrance) var(--ease-out);
+  transition-delay: var(--stagger-delay, 0ms);
+}
+
+/* --------------------------------------------------------------------------
+   19. 404
+   -------------------------------------------------------------------------- */
+
+.notfound {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--s-4);
+  min-height: 70vh;
+}
+
+.notfound-char {
+  width: clamp(120px, 22vw, 200px);
+  aspect-ratio: 1;
+  color: var(--red);
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .char-inner.is-breathing,
+  .char-inner.is-squashing,
+  .char-inner.is-rising {
+    animation: none;
+  }
+
+  .reveal,
+  .stagger {
+    opacity: 1;
+    transform: none;
+  }
+
+  .index-detail {
+    transition: none;
+  }
+}
+
+/* Utility */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.stack-1 > * + * {
+  margin-top: var(--s-1);
+}
+
+.stack-2 > * + * {
+  margin-top: var(--s-2);
+}
+
+.stack-3 > * + * {
+  margin-top: var(--s-3);
+}
+
+.stack-4 > * + * {
+  margin-top: var(--s-4);
+}
+
+
+.project-note-box {
+  min-height: 12rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--s-2);
+  padding: var(--s-4);
+  border: 1px dashed var(--rule);
+  border-radius: var(--r-card);
+}
+
+/* --------------------------------------------------------------------------
+   7b. Meer dan design — spread the three personal columns across the section
+   so the text stays readable and the dark band feels balanced.
+   -------------------------------------------------------------------------- */
+
+.meer-dan-design-grid {
+  column-gap: clamp(var(--s-4), 5vw, var(--s-7));
+  row-gap: var(--s-6);
+}
+
+.meer-dan-design-item {
+  grid-column: span 4;
+  max-width: 34rem;
+}
+
+.meer-dan-design-item p + p {
+  margin-top: var(--s-3);
+}
+
+@media (max-width: 899px) {
+  .meer-dan-design-item {
+    grid-column: 1 / -1;
+    max-width: 42rem;
+  }
+}
+
+
+
+/* --------------------------------------------------------------------------
+   Personal hero — colour ↔ black-and-white slider.
+   -------------------------------------------------------------------------- */
+
+.hero--compare {
+  position: relative;
+  min-height: min(86vh, 56rem);
+  background: var(--ink);
+  color: var(--cream);
+  overflow: hidden;
+}
+
+.hero--compare .compare {
+  height: min(86vh, 56rem);
+  min-height: 34rem;
+}
+
+.hero--compare .compare-img {
+  object-position: center;
+}
+
+.hero--compare .compare-img--top {
+  clip-path: inset(0 calc(100% - var(--split)) 0 0);
+}
+
+.hero--compare .compare-handle {
+  display: block;
+  width: 2px;
+  background: var(--cream);
+  border: 0;
+}
+
+.hero--compare .compare-grip {
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  border: 1px solid var(--cream);
+  border-radius: 50%;
+  background: var(--ink);
+}
+
+.hero--compare .compare-grip::before,
+.hero--compare .compare-grip::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid var(--cream);
+  border-right: 2px solid var(--cream);
+}
+
+.hero--compare .compare-grip::before {
+  transform: translateX(-8px) rotate(-135deg);
+}
+
+.hero--compare .compare-grip::after {
+  transform: translateX(8px) rotate(45deg);
+}
+
+.hero--compare .compare-grip-line,
+.hero--compare .compare-grip-dot {
+  display: none;
+}
+
+.hero--compare .compare-labels {
+  bottom: var(--gutter);
+}
+
+.hero--compare .hero-overlay--compare {
+  z-index: 4;
+}
+
+@media (max-width: 640px) {
+  .hero--compare {
+    min-height: auto;
+  }
+
+  .hero--compare .compare {
+    height: 72vh;
+    min-height: 32rem;
+  }
+
+  .hero--compare .compare-grip {
+    width: 60px;
+    height: 60px;
+  }
+
+  .hero--compare .hero-overlay--compare {
+    padding-top: var(--s-5);
+  }
+}
+.detail-grid--no-image {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+}
+
+.detail-grid--no-image .detail-body {
+    width: 100%;
+}
+
+@media (max-width: 700px) {
+    .detail-grid--no-image {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}

@@ -1,0 +1,156 @@
+/* ==========================================================================
+   tokens.css — the only file in this project allowed to contain a colour value.
+   Everything else references var(--…). If you find a hex outside this file,
+   it is a bug.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Fonts. Self-hosted .woff2, no third-party <link>.
+   Cabinet Grotesk + Switzer: Fontshare, free for commercial use.
+   Martian Mono: SIL Open Font License 1.1.
+   Martian Mono is a variable font — one file covers 400 and 500, so the
+   weight range is declared rather than shipping two near-identical files.
+   -------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('../fonts/cabinet-grotesk-800.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Switzer';
+  src: url('../fonts/switzer-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Switzer';
+  src: url('../fonts/switzer-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* latin — loaded for effectively every visitor */
+@font-face {
+  font-family: 'Martian Mono';
+  src: url('../fonts/martian-mono-latin.woff2') format('woff2');
+  font-weight: 400 500;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+    U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext — only fetched when a glyph outside latin is actually used */
+@font-face {
+  font-family: 'Martian Mono';
+  src: url('../fonts/martian-mono-latin-ext.woff2') format('woff2');
+  font-weight: 400 500;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7,
+    U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F,
+    U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+
+:root {
+  /* ------------------------------------------------------------------------
+     Colour — three families, five tokens. Nothing else enters the stylesheet.
+     No grey. Grey is what makes a cream palette look unfinished.
+
+     Measured contrast (WCAG 2.x, computed not eyeballed):
+       ink   on cream  16.67:1   any size
+       cream on ink    16.67:1   any size
+       red   on cream   5.21:1   any size — clears AA body text
+       cream on red     5.21:1   any size
+       red-deep on cream 8.39:1  any size
+       red   on ink      3.20:1   LARGE TEXT AND NON-TEXT ONLY — never body
+     ------------------------------------------------------------------------ */
+  --red: #C8102E;        /* signal red — saturated, never clay/terracotta */
+  --red-deep: #8E0B20;   /* pressed states, dark red surfaces */
+  --cream: #F6F1E3;      /* page background — broken white, warmer than default */
+  --sand: #EBE3D0;       /* raised surfaces: cards, input fills, expanded rows */
+  --ink: #14110F;        /* text and dark sections — warm black, never #000 */
+
+  /* Hairline rules. Expressed as a token so no raw rgba() appears downstream. */
+  --rule: color-mix(in srgb, var(--ink) 15%, transparent);
+  --rule-on-ink: color-mix(in srgb, var(--cream) 18%, transparent);
+
+  /* Sticky header fill — 92% ink, per §5.1 */
+  --header-fill: color-mix(in srgb, var(--ink) 92%, transparent);
+
+  /* ------------------------------------------------------------------------
+     Type — three families. No fourth. No serif.
+     Fallback stacks are deliberately free of every face named in §3.3,
+     and contain no serif or slab-serif monospace.
+     ------------------------------------------------------------------------ */
+  --font-display: 'Cabinet Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-body: 'Switzer', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-mono: 'Martian Mono', ui-monospace, monospace;
+
+  --t-hero: clamp(3.25rem, 11vw, 8.5rem);
+  --t-h2: clamp(2rem, 5vw, 3.75rem);
+  --t-h3: clamp(1.25rem, 2.5vw, 1.75rem);
+  --t-body: clamp(1rem, 1.1vw, 1.0625rem);
+  --t-meta: 0.6875rem;
+
+  --lh-display: 0.95;
+  --lh-body: 1.55;
+  --track-display: -0.03em;
+  --track-meta: 0.08em;
+
+  /* ------------------------------------------------------------------------
+     Space — 8px base, no exceptions.
+     ------------------------------------------------------------------------ */
+  --s-1: 0.5rem;    /*  8px */
+  --s-2: 1rem;      /* 16px */
+  --s-3: 1.5rem;    /* 24px */
+  --s-4: 2rem;      /* 32px */
+  --s-5: 3rem;      /* 48px */
+  --s-6: 4rem;      /* 64px */
+  --s-7: 6rem;      /* 96px */
+  --s-8: 10rem;     /* 160px */
+
+  --section-pad: var(--s-7);   /* 96px mobile, raised to 160px at desktop */
+  --gutter: 1.5rem;            /* 24px mobile, raised to 40px at desktop */
+  --max-w: 1440px;
+
+  /* ------------------------------------------------------------------------
+     Shape. 20px on cards and character containers, 2px on inputs and buttons.
+     Never pill, never 8px-everything.
+     ------------------------------------------------------------------------ */
+  --r-card: 20px;
+  --r-control: 2px;
+
+  /* ------------------------------------------------------------------------
+     Motion. Restrained — over-animation is itself a tell.
+     ------------------------------------------------------------------------ */
+  --d-colour: 120ms;
+  --d-transform: 200ms;
+  --d-entrance: 500ms;
+  --d-reveal: 400ms;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* Focus ring — never removed, only recoloured per surface. */
+  --focus: var(--red);
+  --focus-width: 2px;
+  --focus-offset: 2px;
+}
+
+@media (min-width: 900px) {
+  :root {
+    --section-pad: var(--s-8);
+    --gutter: 2.5rem; /* 40px */
+  }
+}
+
+/* Dark sections flip the focus ring and rule colour rather than restyling
+   every child. Set by the .is-ink / .is-red section classes in main.css. */
