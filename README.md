@@ -1,54 +1,57 @@
 # Marie-Li — Portfolio
 
-Portfolio website van Marie-Li Suffeleers, student Digitale Vormgeving aan Hogeschool PXL.
+Dit is mijn portfolio als student Digitale Vormgeving aan Hogeschool PXL. Op deze website laat ik zien wie ik ben, wat ik leer en aan welke projecten ik heb gewerkt.
 
 ## Technologie
 
-- HTML
-- CSS
-- Vanilla JavaScript
+Voor deze website heb ik gebruikgemaakt van:
 
-Er worden geen frameworks, CMS-systemen of andere programmeertalen gebruikt.
+* HTML
+* CSS
+* Vanilla JavaScript
+
+Ik heb bewust geen frameworks, CMS-systemen of andere programmeertalen gebruikt.
 
 ## Inhoud
 
-De website bevat:
-- persoonlijke voorstelling;
-- opleiding en motivatie;
-- schoolprojecten;
-- niet-schoolse ervaring via KSA Runkst;
-- een speciale sectie over activiteiten buiten design;
-- contactpagina;
-- responsive navigatie en interactieve onderdelen.
-- een overzicht van mijn opleiding, stage-ervaring en vaardigheden.
+Op mijn website vind je onder andere:
+
+* een korte voorstelling van mezelf;
+* mijn opleiding en waarom ik voor Digitale Vormgeving heb gekozen;
+* mijn schoolprojecten;
+* een niet-schoolproject voor KSA Runkst;
+* een speciale sectie over activiteiten buiten design;
+* mijn contactgegevens;
+* mijn opleiding, stage-ervaring en vaardigheden;
+* verschillende interactieve onderdelen en een responsive navigatie.
 
 ## Projecten
 
-De portfolio bevat momenteel vier persoonlijke projecten:
-- **ARES** — logo design voor een fictief kledingmerk;
-- **Fjörd** — concept design voor een Scandinavisch seafoodrestaurant, van moodboard en logo tot menu en mockups;
-- **Film posters** — drie eigen posterconcepten voor bekende films;
-- **KSA Runkst website** — een niet-schoolproject waarbij Marie-Li meehielp aan het visuele ontwerp van de website.
+Op mijn portfolio staan verschillende projecten waar ik tijdens mijn opleiding en daarbuiten aan heb gewerkt:
 
-De persoonlijke foto van Marie-Li is toegevoegd. De projectbeelden op de projectenpagina zijn eigen ontwerpen, mockups, schetsen en uitwerkingen die door Marie-Li voor haar opdrachten zijn gemaakt.
+* **ARES** — een logo-ontwerp voor een fictief kledingmerk;
+* **Fjörd** — een concept voor een Scandinavisch seafoodrestaurant, waarbij ik onder andere een moodboard, logo, menu en mockups heb gemaakt;
+* **Film posters** — drie eigen posterontwerpen voor bekende films;
+* **KSA Runkst website** — een project buiten school waarbij ik heb meegeholpen aan het visuele ontwerp van de website.
+
+De afbeeldingen op de projectenpagina zijn voornamelijk eigen ontwerpen, schetsen, mockups en uitwerkingen die ik voor mijn opdrachten heb gemaakt. Ook heb ik een persoonlijke foto van mezelf gebruikt.
 
 ## Afbeeldingen en rechten
 
-Er zijn in deze versie geen externe foto's of klantlogo's opgenomen. Persoonlijke foto's en projectbeelden worden door Marie-Li zelf aangeleverd en alleen gebruikt wanneer ze haar eigen werk zijn of wanneer er toestemming is om ze te publiceren.
+Voor mijn portfolio gebruik ik vooral eigen foto's en afbeeldingen van mijn eigen projecten. Ik heb geen externe foto's of klantlogo's gebruikt waarvoor ik geen toestemming heb.
 
 ## AI-gebruik
 
-Voor dit project wordt **ChatGPT (OpenAI)** gebruikt als AI-hulpmiddel voor:
-- hulp bij HTML, CSS en JavaScript;
-- het structureren en verbeteren van teksten;
-- het controleren van de website-opbouw.
+Tijdens het maken van mijn website heb ik ChatGPT gebruikt als hulpmiddel. Vooral wanneer ik ergens vastzat met HTML, CSS of JavaScript, gebruikte ik het om mee te denken, fouten te zoeken of een oplossing te vinden.
 
-De uiteindelijke inhoud, persoonlijke gegevens, projecten en afbeeldingen zijn van Marie-Li zelf.
+Ik heb de gekregen oplossingen zelf bekeken, aangepast en toegepast in mijn project. De ontwerpen, teksten, projecten en persoonlijke informatie op mijn website heb ik zelf gemaakt.
 
 ## Privacy
 
-Zie `privacy.txt` voor de privacy-informatie van deze portfolio.
+De privacy-informatie van mijn portfolio staat in `privacy.txt`.
 
 ## Status
 
-Deze versie bevat persoonlijke gegevens, een eigen profielfoto en eigen projectbeelden. Studentenjobs zijn bewust niet opgenomen omdat ze niet relevant zijn voor mijn portfolio als student Digitale Vormgeving. De KSA-website wordt als extern project gelinkt zodat bezoekers het resultaat zelf kunnen bekijken.
+Dit is mijn portfolio voor WPL1. Studentenjobs heb ik bewust niet opgenomen omdat deze niet relevant zijn voor mijn opleiding Digitale Vormgeving.
+
+Naast mijn schoolprojecten heb ik ook mijn ervaring bij KSA Runkst toegevoegd. Daar heb ik onder andere meegeholpen aan het ontwerp van hun website.
